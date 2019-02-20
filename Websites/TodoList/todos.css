@@ -1,0 +1,11 @@
+body {
+    background: white;
+}
+
+#codeTodo {
+    text-decoration: underline;
+}
+
+.completed {
+    text-decoration: line-through;
+}

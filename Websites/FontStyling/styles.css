@@ -1,0 +1,15 @@
+
+
+p {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    line-height: 1.5;
+    text-align: center;
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: 'Coiny', cursive;
+    text-align: right;
+    text-decoration: overline;
+}

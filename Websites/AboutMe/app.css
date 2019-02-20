@@ -1,0 +1,24 @@
+body {
+    /* background: url("https://cdn.shopify.com/s/files/1/0834/4341/products/WG1140_D_600x.jpg?v=1466897174"); */
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-color: rgb(255,255,200)
+}
+h1 {
+    color: red;
+    border-color: rgb(255,200,25);
+    border-width: medium;
+    border-style: solid;
+
+    border: 5px solid rgb(255,200,25);
+}
+h2 {
+    color: rgba(0,200,50,0.8);
+}
+h4 {
+    color: purple;
+}
+
+li {
+    color: green;
+}
