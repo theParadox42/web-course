@@ -3,4 +3,4 @@ var body = document.querySelector("body");
 setInterval(function(){
     main.classList.toggle("text-dark");
     body.classList.toggle("bg-dark");
-},5);
+},7);
