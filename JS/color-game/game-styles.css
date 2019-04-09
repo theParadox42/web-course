@@ -24,6 +24,7 @@ h1 {
     background: purple;
     padding-bottom: 30%;
     transition: background 0.6s;
+    border-radius: 15%;
 }
 #stripe {
     background-color: white;
@@ -47,7 +48,6 @@ button {
     color: steelblue;
     letter-spacing: inherit;
     transition: all 0.3s;
-    border-radius: 15%;
 }
 button:hover {
     color: white;
