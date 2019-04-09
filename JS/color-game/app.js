@@ -12,7 +12,7 @@ resetBtn.addEventListener("click", function(){
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
-    h1.style.backgroundColor = "#232323";
+    h1.style.backgroundColor = "steelblue";
     for(var i = 0; i < squares.length; i ++){
         //Add Colors
         squares[i].style.backgroundColor = colors[i];
