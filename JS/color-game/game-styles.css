@@ -14,7 +14,7 @@ h1 {
 }
 #container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 90%;
 }
 .square {
@@ -23,6 +23,7 @@ h1 {
     width: 30%;
     background: purple;
     padding-bottom: 30%;
+    transition: background 0.6s;
 }
 #stripe {
     background-color: white;
@@ -45,7 +46,14 @@ button {
     font-weight: 700;
     color: steelblue;
     letter-spacing: inherit;
+    transition: all 0.3s;
+    border-radius: 15%;
+}
+button:hover {
+    color: white;
+    background-color: steelblue;
 }
 #message {
     display: inline-block;
+    width: 20%;
 }
