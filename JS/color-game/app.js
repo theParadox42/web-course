@@ -13,9 +13,9 @@ resetBtn.addEventListener("click", function(){
     colorDisplay.textContent = pickedColor;
     h1.style.backgroundColor = "#232323";
     for(var i = 0; i < squares.length; i ++){
-        //Add Colors
         squares[i].style.backgroundColor = colors[i];
     }
+    messageDisplay.textContent = "";
 });
 var easyBtn = document.getElementById("easyBtn");
 easyBtn.addEventListener("click", function(){
