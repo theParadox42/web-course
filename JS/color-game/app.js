@@ -1,76 +1,66 @@
 
 var numSquares = 6;
-var colors = generateRandomColors(numSquares);
+var colors = [];
 var squares = document.getElementsByClassName("square");
-var pickedColor = pickColor();
+var pickedColor;
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.getElementById("message");
 var h1 = document.querySelector("h1");
 var resetBtn = document.getElementById("reset");
-resetBtn.addEventListener("click", function(){
-    this.textContent = "New Colors";
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    h1.style.backgroundColor = "steelblue";
-    for(var i = 0; i < squares.length; i ++){
-        squares[i].style.backgroundColor = colors[i];
+var modeBtns = document.getElementsByClassName("mode");
+
+init();
+
+function init(){
+    resetBtn.addEventListener("click", reset);
+
+    for(var i = 0; i < modeBtns.length; i ++){
+        modeBtns[i].addEventListener("click", function(){
+            modeBtns[0].classList.remove("selected");
+            modeBtns[1].classList.remove("selected");
+            this.classList.add("selected");
+            numSquares = this.textContent == "Easy" ? 3 : 6;
+            reset();
+        });
     }
-    messageDisplay.textContent = "";
-});
-var easyBtn = document.getElementById("easyBtn");
-easyBtn.addEventListener("click", function(){
-    this.classList.add("selected");
-    hardBtn.classList.remove("selected");
-    numSquares = 3;
+    for(var i = 0; i < squares.length; i ++){
+        //Add Colors
+        squares[i].style.backgroundColor = colors[i];
+
+        //Add click listeners
+        squares[i].addEventListener("click", function(){
+            let clickedColor = this.style.backgroundColor;
+            if(clickedColor === pickedColor) {
+                messageDisplay.textContent = "Correct!";
+                changeColors(pickedColor);
+                h1.style.backgroundColor = pickedColor;
+                resetBtn.textContent = "Play Again";
+            } else {
+                this.style.backgroundColor = "#232323";
+                messageDisplay.textContent = "Try Again";
+            }
+        });
+    }
+
+    reset();
+}
+
+function reset(){
+    resetBtn.textContent = "New Colors";
     colors = generateRandomColors(numSquares);
     pickedColor = pickColor();
     colorDisplay.textContent = pickedColor;
     h1.style.backgroundColor = "steelblue";
     for(var i = 0; i < squares.length; i ++){
-        if(colors[i]){
-            //Add Colors
+        if(colors[i]) {
+            squares[i].style.display = "block"
             squares[i].style.backgroundColor = colors[i];
         } else {
             squares[i].style.display = "none";
         }
     }
-});
-var hardBtn = document.getElementById("hardBtn");
-hardBtn.addEventListener("click", function(){
-    this.classList.add("selected");
-    easyBtn.classList.remove("selected");
-    numSquares = 3;
-    colors = generateRandomColors(numSquares);
-    pickedColor = pickColor();
-    colorDisplay.textContent = pickedColor;
-    h1.style.backgroundColor = "#steelblue";
-    for(var i = 0; i < squares.length; i ++){
-        //Add Colors
-        squares[i].style.backgroundColor = colors[i];
-        squares[i].style.display = "block";
-    }
-});
+    messageDisplay.textContent = "";
 
-colorDisplay.textContent = pickedColor;
-
-for(var i = 0; i < squares.length; i ++){
-    //Add Colors
-    squares[i].style.backgroundColor = colors[i];
-
-    //Add click listeners
-    squares[i].addEventListener("click", function(){
-        let clickedColor = this.style.backgroundColor;
-        if(clickedColor === pickedColor) {
-            messageDisplay.textContent = "Correct!";
-            changeColors(pickedColor);
-            h1.style.backgroundColor = pickedColor;
-            resetBtn.textContent = "Play Again";
-        } else {
-            this.style.backgroundColor = "#232323";
-            messageDisplay.textContent = "Try Again";
-        }
-    });
 }
 
 function changeColors(color) {

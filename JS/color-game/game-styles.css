@@ -48,6 +48,7 @@ button {
     color: steelblue;
     letter-spacing: inherit;
     transition: all 0.3s;
+    outline: none;
 }
 button:hover {
     color: white;
